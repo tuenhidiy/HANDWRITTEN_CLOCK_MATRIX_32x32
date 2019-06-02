@@ -1,6 +1,6 @@
 //************************************************************************************************************//
   
-//********************* THE 32x32 BICOLOR RG LED MATRIX USING BIT ANGLE MODULATION METHOD ********************//
+//*************** HANDWRITTEN CLOCK - 32x32 BICOLOR LED MATRIX USING BIT ANGLE MODULATION METHOD *************//
 
 //************************************************************************************************************//
 #include <SPI.h>
@@ -26,15 +26,11 @@
 #define Blank_Pin_Bit   5 // PORTE bit 5 - PE5
 #define Latch_Pin_Bit   4 // PORTE bit 4 - PE4
 
-
-
 #define RowA_Pin_Bit    0 // PORTA bit 0 - PA0
 #define RowB_Pin_Bit    2 // PORTA bit 2 - PA2
 #define RowC_Pin_Bit    4 // PORTA bit 4 - PA4
 #define RowD_Pin_Bit    6 // PORTA bit 6 - PA6
 #define OE_Pin_Bit      7 // PORTC bit 7 - PC7
-
-
 
 /**   An RG color template */
 struct Color
@@ -51,14 +47,11 @@ const Color yellowcolor    = Color(0x0F,0x09);
 const Color greencolor     = Color(0x00,0x0F);
 const Color clearcolor     = Color(0x00,0x00);
 
-
 const Color myRED       = Color(0x0F,0x00);
 const Color myORANGE    = Color(0x0F,0x0F);
 const Color myYELLOW    = Color(0x0F,0x09);
 const Color myGREEN     = Color(0x00,0x0F);
 const Color myCLEAR     = Color(0x00,0x00);
-
-
 
 // *************************************************For DS3231******************************************//
 #define DS3231_I2C_ADDRESS 0x68
@@ -93,14 +86,12 @@ uint8_t R, G;
 const  byte Size_Y = 32;    //Number of LEDS in Y axis (Top to Bottom)
 const  byte Size_X = 32;    //Number of LEDs in X axis (Left to Right)
 
-
 byte red[4][128];
 byte green[4][128];
 
 int level=0;                //keeps track of which level we are shifting data to
 int row=0;
 int BAM_Bit, BAM_Counter=0; // Bit Angle Modulation variables to keep track of things
-
 
 #define RED     0x0F,0x00
 #define ORANGE  0x0F,0x04
@@ -562,7 +553,6 @@ void xyfillRectangle(uint8_t xoffset,  uint8_t yoffset, uint8_t y1, uint8_t x1, 
         }
     }         
 }
-
 
 // Convert decimal numbers to binary coded decimal
 byte decToBcd(byte val)
